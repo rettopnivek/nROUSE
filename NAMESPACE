@@ -1,0 +1,3 @@
+useDynLib(nROUSE)
+importFrom(Rcpp, evalCpp)
+exportPattern("^[[:alpha:]]+")
