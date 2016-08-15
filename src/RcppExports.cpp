@@ -6,46 +6,16 @@
 
 using namespace Rcpp;
 
-// rcpparma_hello_world
-arma::mat rcpparma_hello_world();
-RcppExport SEXP nROUSE_rcpparma_hello_world() {
+// simulate_nROUSE
+Rcpp::List simulate_nROUSE(Rcpp::NumericVector presentations, Rcpp::NumericVector primeInput, Rcpp::NumericVector param);
+RcppExport SEXP nROUSE_simulate_nROUSE(SEXP presentationsSEXP, SEXP primeInputSEXP, SEXP paramSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    __result = Rcpp::wrap(rcpparma_hello_world());
-    return __result;
-END_RCPP
-}
-// rcpparma_outerproduct
-arma::mat rcpparma_outerproduct(const arma::colvec& x);
-RcppExport SEXP nROUSE_rcpparma_outerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject __result;
-    Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    __result = Rcpp::wrap(rcpparma_outerproduct(x));
-    return __result;
-END_RCPP
-}
-// rcpparma_innerproduct
-double rcpparma_innerproduct(const arma::colvec& x);
-RcppExport SEXP nROUSE_rcpparma_innerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject __result;
-    Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    __result = Rcpp::wrap(rcpparma_innerproduct(x));
-    return __result;
-END_RCPP
-}
-// rcpparma_bothproducts
-Rcpp::List rcpparma_bothproducts(const arma::colvec& x);
-RcppExport SEXP nROUSE_rcpparma_bothproducts(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject __result;
-    Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    __result = Rcpp::wrap(rcpparma_bothproducts(x));
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type presentations(presentationsSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type primeInput(primeInputSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type param(paramSEXP);
+    __result = Rcpp::wrap(simulate_nROUSE(presentations, primeInput, param));
     return __result;
 END_RCPP
 }

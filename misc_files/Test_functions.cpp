@@ -1,30 +1,7 @@
-#include "RcppArmadillo.h"
+#include <RcppArmadillo.h>
 
-/*
-Purpose:
-C++ code for fast simulation of the nROUSE model (Huber and O'Reilly, 
-2003).
+// [[Rcpp::depends(RcppArmadillo)]]
 
-Package development:
-library(devtools)
-library(roxygen2)
-
-// Printing to R console
-Rcpp::Rcout << "Debugging example" << std::endl;
-
-Index
-Lookup - 01:  subplus
-Lookup - 02:  update_nROUSE
-Lookup - 03:  simulate_nROUSE
-
-*/
-
-//' @useDynLib nROUSE
-//' @importFrom Rcpp sourceCpp
-
-// Lookup - 01
-// An internal function to calculate when membrane potentials 
-// are above a firing threshold.
 arma::mat subplus( arma::mat A, double Th ) {
   
   arma::mat B( A.n_rows, A.n_cols, arma::fill::ones );
@@ -35,9 +12,6 @@ arma::mat subplus( arma::mat A, double Th ) {
   return( B );
 }
 
-// Lookup - 02
-// An internal function that updates the membrane potential, amplitude, 
-// and output for a specified layer in the nROUSE network.
 void update_nROUSE( arma::mat& new_mem, arma::mat& new_amp, arma::mat& old_out, 
                     arma::mat inp, arma::mat old_mem, arma::mat old_amp, 
                     double Th, double L, double R, double D, double I, 
@@ -87,56 +61,10 @@ void update_nROUSE( arma::mat& new_mem, arma::mat& new_amp, arma::mat& old_out,
   
 }
 
-//' The nROUSE model
-//'
-//' Function to simulate the predictions of the nROUSE model (Huber 
-//' and O'Reilly, 2003) for perceptual identification latencies 
-//' and forced-choice accuracy.
-//'
-//' @param presentations A vector giving the duration (in ms) of 
-//'   the prime, the target, the mask, and the choice alternatives.
-//' @param primeInput A vector of two elements used to set the type 
-//'   of prime. For instance, [2,0] indicates a double prime for 
-//'   targets, while [0,1] indicates a single prime for foils.
-//' @param param A vector giving the values for the parameters.
-//'  \describe{
-//'    \item{\code{param[1]}}{Semantic to orthographic feedback scalar}
-//'    \item{\code{param[2]}}{Noise constant}
-//'    \item{\code{param[3]}}{Constant leak current}
-//'    \item{\code{param[4]}}{Synaptic depletion rate}
-//'    \item{\code{param[5]}}{Recovery rate}
-//'    \item{\code{param[6]}}{Inhibition constant}
-//'    \item{\code{param[7]}}{Activation threshold}
-//'    \item{\code{param[8]}}{Temporal attention}
-//'    \item{\code{param[9]}}{Integration time constant (Visual)}
-//'    \item{\code{param[10]}}{Integration time constant (Orthographic)}
-//'    \item{\code{param[10]}}{Integration time constant (Semantic)}
-//'     }
-//'
-//' @section References:
-//' Huber, D. E., & O'Reilly, R. C. (2003). Persistence and 
-//'   accommodation in short-term priming and other perceptual 
-//'   paradigms: Temporal segregation through synaptic depression. 
-//'   Cognitive Science, 27(3), 403-430.
-//'
-//' @examples
-//' # Define duration (in ms) for prime, target, mask, and choices
-//' presentations = c( 17, 50, 450, 500 )
-//' # Set a double prime for targets
-//' primeInput = c(2,0)
-//' # Simulate model with default parameters
-//' sim = simulate_nROUSE( presentations, primeInput )
-//'
-//' @export
 // [[Rcpp::export]]
-
 Rcpp::List simulate_nROUSE( Rcpp::NumericVector presentations, 
-                            Rcpp::NumericVector primeInput, 
-                            Rcpp::NumericVector param = 
-                              Rcpp::NumericVector::create(
-                                .25, .0302, .15, .324, .022, 
-                                .9844, .15, 1.0, .0294, .0609, 
-                                .015 ) ) {
+                                     Rcpp::NumericVector param, 
+                                     Rcpp::NumericVector primeInput ) {
   // Duration of prime
   int PrimeDur = presentations(0);
   // Duration of target flash
