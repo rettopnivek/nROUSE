@@ -39,7 +39,7 @@ The predicted accuracy over varying prime durations and types can be produced vi
 nROUSE_predictions()
 ```
 
-The nROUSE model can be simulated via `simulate_nROUSE`, and the log-likelihood for a set of data can be computed via the function `nROUSE_logLik`. The latter function can be passed into a optimization routine (e.g., `optim`) to carry out maximum likelihood estimation.
+The nROUSE model can be simulated via `simulate_nROUSE`, and the log-likelihood for a set of data can be computed via the function `nROUSE_logLik`. This latter function can be passed into a optimization routine (e.g., `optim`) to carry out maximum likelihood estimation.
 
 Additional details and examples for all four functions can be obtained via:
 ```
