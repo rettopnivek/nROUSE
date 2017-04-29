@@ -7,7 +7,7 @@ Author: Kevin Potter
 Maintainer: Kevin Potter
     <kevin.w.potter@gmail.com>
 Description: Functions for simulating and fitting the nROUSE model.
-License: What license is it under?
+License: MIT + file LICENSE
 Imports:
     Rcpp (>= 0.12.2)
 LinkingTo: Rcpp, RcppArmadillo

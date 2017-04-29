@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Response time and choice data from a priming task.\n#'\n#' A dataset containing response times and choice data for\n#' 25 subjects who completed a word identification task with\n#' immediate word priming.\n#'\n#' @format A data frame with 100 rows and 8 variables:\n#' \\describe{\n#'   \\item{PrimeDur}{The duration in ms for the prime word.}\n#'   \\item{TarDur}{The duration in ms for the flash of \n#'     the target word}\n#'   \\item{MaskDur}{The duration of the backward mask for the \n#'     target word.}\n#'   \\item{Type}{The type of prime, where -2 indicates a \n#'     double prime of the foil word, and 2 indicates a double \n#'     prime of the target word.}\n#'   \\item{Subject}{The subject index.}\n#'   \\item{P}{The proportion correct per subject and condition.}\n#'   \\item{Y}{The frequency correct per subject and condition.}\n#'   \\item{N}{The total number of trials per subject and condition.}\n#'   }\n\"priming_ex\"\n",
+    "created" : 1478575061009.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3297546178",
+    "id" : "E9272DA3",
+    "lastKnownWriteTime" : 1478571772,
+    "last_content_update" : 1478571772,
+    "path" : "F:/Stuff/Kevin's Stuff/Postdoc/R packages/nROUSE/R/data.R",
+    "project_path" : "R/data.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
