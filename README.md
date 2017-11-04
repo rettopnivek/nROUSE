@@ -1,5 +1,9 @@
 # nROUSE
-A R package for simulating and fitting the nROUSE model (Huber and O'Reilly, 2003).
+
+The R package nROUSE provides a set of functions to simulate and estimate the nROUSE model (Huber & O'Reilly, 2003; Rieth & Huber, 2017). The nROUSE model is a neural network model that accounts for accuracy performance in experimental paradigms that involve perceptual identification with repetition priming. The model posits that manipulations of prime type and duration 
+influence accuracy performance via the non-linear 
+interaction of lingering perceptual activation and neural 
+habituation.
 
 ## Getting started
 

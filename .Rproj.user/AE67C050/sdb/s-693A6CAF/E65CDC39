@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#------------------------------------#\n# Description for the nROUSE package #\n#------------------------------------#\n\n# Useful tools for package development\n# library(devtools)\n# library(roxygen2)\n\n#' Functions for the nROUSE model\n#'\n#' @docType package\n#' @name nROUSE-package\n#' @aliases nROUSE\n#' @author Kevin W Potter, \\email{kevin.w.potter@@gmail.com}\n#' \n#' @useDynLib nROUSE, .registration = TRUE\n#' @importFrom Rcpp evalCpp sourceCpp\n#' \n#' @description\n#'\n#' The \\pkg{nROUSE} package provides a set of functions \n#' to simulate and estimate the nROUSE model (Huber & \n#' O'Reilly, 2003; Rieth & Huber, 2017). The nROUSE model \n#' is a neural network model that accounts for accuracy \n#' performance in experimental paradigms that involve \n#' perceptual identification with repetition priming. The \n#' model posits that manipulations of prime type and duration \n#' influence accuracy performance via the non-linear \n#' interaction of lingering perceptual activation and neural \n#' habituation.\n#' \n#' @references\n#' \n#' Huber, D. E., & O'Reilly, R. C. (2003). Persistence and \n#'   accommodation in short-term priming and other perceptual \n#'   paradigms: Temporal segregation through synaptic depression. \n#'   Cognitive Science, 27, 403-430.\n#'   \n#' Rieth, C. A., & Huber, D. E. (2017). Comparing different \n#'   kinds of words and word-word relations to test an habituation \n#'   model of priming. Cognitive Psychology, 95, 79-104.\n#'   DOI: https://doi.org/10.1016/j.cogpsych.2017.04.002\n#'\nNULL\n",
+    "created" : 1509804626095.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2550635780",
+    "id" : "E65CDC39",
+    "lastKnownWriteTime" : 1509809950,
+    "last_content_update" : 1509809949578,
+    "path" : "F:/Stuff/Kevin's Stuff/Postdoc/R packages/nROUSE/R/nROUSE-package.R",
+    "project_path" : "R/nROUSE-package.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

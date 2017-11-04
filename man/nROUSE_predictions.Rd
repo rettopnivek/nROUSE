@@ -22,7 +22,20 @@ the target mask, and the choice options.}
 latencies should be returned, and if a plot should be generated.}
 
 \item{prm}{an optional named vector for the parameters of the 
-nROUSE model.}
+nROUSE model, where...
+\itemize{
+  \item Fe = the feedback scalar.
+  \item N = The noise multiplier.
+  \item L = The constant leak current.
+  \item D = The synaptic depletion rate.
+  \item R = The replenishment rate.
+  \item I = The inhibition constant.
+  \item Th = The noise multiplier.
+  \item Ta = The temporal attention parameter.
+  \item SV = The visual integration rate.
+  \item SO = The orthographic integration rate.
+  \item SS = The semantic integration rate.
+}}
 }
 \value{
 A list consisting of a matrix of predicted accuracies by 
@@ -35,4 +48,26 @@ Generates a plot of the predicted accuracy over different
 prime durations and types for the nROUSE model (output can 
 be generated as well).
 }
+\examples{
+# Default
+nROUSE_predictions()
 
+# Specific conditions
+
+# Prime durations
+pd = c(50,400)
+# Prime types
+pt = c('Target','Foil')
+nROUSE_predictions( primeDurations = pd, primeTypes = pt )
+
+# Different timing for target stimulus flash and subsequent mask
+nROUSE_predictions( design = c( 84, 416, 500 ) )
+
+# Suppress plotting and return predictions
+pred = nROUSE_predictions( opt = c( T, F ) )
+
+# Different parameter values (Must be named)
+prm = c( I = .5, Ta = .8, N = .025 )
+nROUSE_predictions( prm = prm )
+
+}

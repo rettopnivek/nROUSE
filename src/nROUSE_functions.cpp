@@ -1,13 +1,13 @@
+// -*- mode: C++; c-indent-level: 4; c-basic-offset: 4; indent-tabs-mode: nil; -*-
+
 #include "RcppArmadillo.h"
+// [[Rcpp::depends(RcppArmadillo)]]
+
 
 /*
 Purpose:
 C++ code for fast simulation of the nROUSE model (Huber and O'Reilly, 
-2003).
-
-Package development:
-library(devtools)
-library(roxygen2)
+2003; Reith & Huber, 2017).
 
 // Printing to R console
 Rcpp::Rcout << "Debugging example" << std::endl;
@@ -16,11 +16,7 @@ Index
 Lookup - 01:  subplus
 Lookup - 02:  update_nROUSE
 Lookup - 03:  simulate_nROUSE
-
 */
-
-//' @useDynLib nROUSE
-//' @importFrom Rcpp sourceCpp
 
 // Lookup - 01
 // An internal function to calculate when membrane potentials 
@@ -90,8 +86,8 @@ void update_nROUSE( arma::mat& new_mem, arma::mat& new_amp, arma::mat& old_out,
 //' The nROUSE model
 //'
 //' Function to simulate the predictions of the nROUSE model (Huber 
-//' and O'Reilly, 2003) for perceptual identification latencies 
-//' and forced-choice accuracy.
+//' and O'Reilly, 2003; Reith & Huber, 2017) for perceptual 
+//' identification latencies and forced-choice accuracy.
 //'
 //' @param presentations A vector giving the duration (in ms) of 
 //'   the prime, the target, the mask, and the choice alternatives.
@@ -118,6 +114,11 @@ void update_nROUSE( arma::mat& new_mem, arma::mat& new_amp, arma::mat& old_out,
 //'   accommodation in short-term priming and other perceptual 
 //'   paradigms: Temporal segregation through synaptic depression. 
 //'   Cognitive Science, 27(3), 403-430.
+//'   
+//' Rieth, C. A., & Huber, D. E. (2017). Comparing different 
+//'   kinds of words and word-word relations to test an habituation 
+//'   model of priming. Cognitive Psychology, 95, 79-104.
+//'   DOI: https://doi.org/10.1016/j.cogpsych.2017.04.002
 //'
 //' @examples
 //' # Define duration (in ms) for prime, target, mask, and choices
@@ -129,7 +130,6 @@ void update_nROUSE( arma::mat& new_mem, arma::mat& new_amp, arma::mat& old_out,
 //'
 //' @export
 // [[Rcpp::export]]
-
 Rcpp::List simulate_nROUSE( Rcpp::NumericVector presentations, 
                             Rcpp::NumericVector primeInput, 
                             Rcpp::NumericVector param = 

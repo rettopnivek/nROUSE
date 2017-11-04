@@ -22,20 +22,57 @@
 #' @param opt a logical vector indicating if the predicted accuracies 
 #'   latencies should be returned, and if a plot should be generated.
 #' @param prm an optional named vector for the parameters of the 
-#'   nROUSE model.
+#'   nROUSE model, where...
+#'   \itemize{
+#'     \item Fe = the feedback scalar.
+#'     \item N = The noise multiplier.
+#'     \item L = The constant leak current.
+#'     \item D = The synaptic depletion rate.
+#'     \item R = The replenishment rate.
+#'     \item I = The inhibition constant.
+#'     \item Th = The noise multiplier.
+#'     \item Ta = The temporal attention parameter.
+#'     \item SV = The visual integration rate.
+#'     \item SO = The orthographic integration rate.
+#'     \item SS = The semantic integration rate.
+#'   }
+#' 
+#' 
 #' @return A list consisting of a matrix of predicted accuracies by 
 #'   prime duration and type, and an array with the predicted perceptual 
 #'   identification latencies for the target and foil by prime duration 
 #'   and prime type.
+#' 
+#' @examples
+#' # Default
+#' nROUSE_predictions()
+#' 
+#' # Specific conditions
+#' 
+#' # Prime durations
+#' pd = c(50,400)
+#' # Prime types
+#' pt = c('Target','Foil')
+#' nROUSE_predictions( primeDurations = pd, primeTypes = pt )
+#' 
+#' # Different timing for target stimulus flash and subsequent mask
+#' nROUSE_predictions( design = c( 84, 416, 500 ) )
+#' 
+#' # Suppress plotting and return predictions
+#' pred = nROUSE_predictions( opt = c( T, F ) )
+#' 
+#' # Different parameter values (Must be named)
+#' prm = c( I = .5, Ta = .8, N = .025 )
+#' nROUSE_predictions( prm = prm )
+#' 
 #' @export
-
 nROUSE_predictions = function( primeDurations = c( 17,50,150,400,2000 ),
                     primeTypes = c('Target','Foil','Neither','Both'),
                     design = c( 50, 450, 500 ),
                     opt = c( F, T ),
                     prm = NULL ) {
   
-  # Default parameters
+  # Default parameters (Rieth & Huber, 2017)
   param = c( Fe = .25, N = .0302, L = .15, 
              D = .324, R = .022, I = .9844, 
              Th = .15, Ta = 1.0, SV = .0294, 
@@ -149,13 +186,45 @@ nROUSE_predictions = function( primeDurations = c( 17,50,150,400,2000 ),
 #' @param design a vector with the duration (in ms) of the target flash,
 #'   the target mask, and the choice options.
 #' @param prm an optional named vector for the parameters of the 
-#'   nROUSE model.
+#'   nROUSE model, where...
+#'   \itemize{
+#'     \item Fe = the feedback scalar.
+#'     \item N = The noise multiplier.
+#'     \item L = The constant leak current.
+#'     \item D = The synaptic depletion rate.
+#'     \item R = The replenishment rate.
+#'     \item I = The inhibition constant.
+#'     \item Th = The noise multiplier.
+#'     \item Ta = The temporal attention parameter.
+#'     \item SV = The visual integration rate.
+#'     \item SO = The orthographic integration rate.
+#'     \item SS = The semantic integration rate.
+#'   }
+#' 
 #' @details The user will receive a prompt to input a prime duration. 
 #'   The function will then generate a plot showing the time course 
 #'   of activation for the target/foil representations for the 
 #'   set of prime types. The predicted accuracies and the difference 
 #'   distribution from which these accuracies are derived are shown 
 #'   on the right.
+#' 
+#' @examples
+#' \dontrun{
+#' # Default
+#' nROUSE_demonstration()
+#' 
+#' # Fewer prime types
+#' pt = c( 'Target', 'Foil' )
+#' nROUSE_demonstration(primeTypes = pt)
+#' 
+#' # Different timing for target stimulus flash and subsequent mask
+#' nROUSE_demonstration(design=c(84,416,500))
+#' 
+#' # Different parameter values (Must be named)
+#' prm = c( I = .5, Ta = .8, N = .025 )
+#' nROUSE_demonstration(prm=prm)
+#' }
+#' 
 #' @export
 
 nROUSE_demonstration = function(primeTypes = c('Target','Foil',

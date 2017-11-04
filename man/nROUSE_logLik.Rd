@@ -4,7 +4,7 @@
 \alias{nROUSE_logLik}
 \title{The log-likelihood function for the nROUSE model}
 \usage{
-nROUSE_logLik(par, dat, mapping = c(2, 6, 8), estimate = T)
+nROUSE_logLik(par, dat, mapping = c(2, 6, 8), predict = F, estimate = T)
 }
 \arguments{
 \item{par}{a vector of log-transformed estimates for 
@@ -39,14 +39,19 @@ the subset of nROUSE parameters.}
   \item The semantic integration rate.
 }}
 
-\item{estimate}{a logical value. If false, returns 
-the predicted proportion correct per condition 
-instead of the sum of the log-likelihoods.}
+\item{predict}{a logical value. If true, returns 
+the predicted proportion correct per condition.}
+
+\item{estimate}{a logical value. If true, returns 
+the sum of the log-likelihoods. If false, returns 
+a vector of log-likelihoods.}
 }
 \value{
-Either the sum of the log-likelihoods, or if 
-\code{estimate} is false, the vector of predicted 
-proportions for correct responses.
+If \code{predict} = \code{TRUE}, returns the 
+  predicted proportion correct per condition. Otherwise,
+  if \code{estimate} = \code{TRUE}, returns the sum of 
+  the log-likelihoods. If neither variable is set to 
+  \code{TRUE}, returns the vector of log-likelihoods.
 }
 \description{
 Calculates the sum of the log-likelihoods for the nROUSE 
@@ -59,16 +64,23 @@ estimates of the nROUSE model parameters.
 data('priming_ex')
 # Select a single subject
 d = priming_ex[ priming_ex$Subject == 1, ]
+
 # Specify a set of log-transformed starting values
 sv = log( c( N = .0302, I = .9844, Ta = 1 ) )
 # Estimate the parameters using maximum likelihood
 mle = optim( sv, nROUSE_logLik, dat = d, 
   control = list( fnscale = -1, maxit = 10000 ) )
+
 # Print the parameter estimates
 round( exp( mle$par ), 3 )
 # Compare to default values:
 # N  = 0.030
 # I  = 0.9844
 # Ta = 1.0
-}
 
+# Generate predicted accuracy from the estimates
+pred = nROUSE_logLik( mle$par, d, predict = T )
+# Compare predicted against observed
+print( round( pred - d$P, 3 ) )
+
+}

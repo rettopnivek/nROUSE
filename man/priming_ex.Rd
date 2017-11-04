@@ -28,4 +28,3 @@ A dataset containing response times and choice data for
 immediate word priming.
 }
 \keyword{datasets}
-

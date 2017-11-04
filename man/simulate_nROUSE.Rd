@@ -32,8 +32,8 @@ targets, while [0,1] indicates a single prime for foils.}
 }
 \description{
 Function to simulate the predictions of the nROUSE model (Huber 
-and O'Reilly, 2003) for perceptual identification latencies 
-and forced-choice accuracy.
+and O'Reilly, 2003; Reith & Huber, 2017) for perceptual 
+identification latencies and forced-choice accuracy.
 }
 \section{References}{
 
@@ -41,7 +41,13 @@ Huber, D. E., & O'Reilly, R. C. (2003). Persistence and
   accommodation in short-term priming and other perceptual 
   paradigms: Temporal segregation through synaptic depression. 
   Cognitive Science, 27(3), 403-430.
+  
+Rieth, C. A., & Huber, D. E. (2017). Comparing different 
+  kinds of words and word-word relations to test an habituation 
+  model of priming. Cognitive Psychology, 95, 79-104.
+  DOI: https://doi.org/10.1016/j.cogpsych.2017.04.002
 }
+
 \examples{
 # Define duration (in ms) for prime, target, mask, and choices
 presentations = c( 17, 50, 450, 500 )
@@ -51,4 +57,3 @@ primeInput = c(2,0)
 sim = simulate_nROUSE( presentations, primeInput )
 
 }
-

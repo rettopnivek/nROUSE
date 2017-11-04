@@ -15,7 +15,20 @@ nROUSE_demonstration(primeTypes = c("Target", "Foil", "Neither", "Both"),
 the target mask, and the choice options.}
 
 \item{prm}{an optional named vector for the parameters of the 
-nROUSE model.}
+nROUSE model, where...
+\itemize{
+  \item Fe = the feedback scalar.
+  \item N = The noise multiplier.
+  \item L = The constant leak current.
+  \item D = The synaptic depletion rate.
+  \item R = The replenishment rate.
+  \item I = The inhibition constant.
+  \item Th = The noise multiplier.
+  \item Ta = The temporal attention parameter.
+  \item SV = The visual integration rate.
+  \item SO = The orthographic integration rate.
+  \item SS = The semantic integration rate.
+}}
 }
 \description{
 Generates a plot of the activation at the highest level of the 
@@ -31,4 +44,21 @@ The user will receive a prompt to input a prime duration.
   distribution from which these accuracies are derived are shown 
   on the right.
 }
+\examples{
+\dontrun{
+# Default
+nROUSE_demonstration()
 
+# Fewer prime types
+pt = c( 'Target', 'Foil' )
+nROUSE_demonstration(primeTypes = pt)
+
+# Different timing for target stimulus flash and subsequent mask
+nROUSE_demonstration(design=c(84,416,500))
+
+# Different parameter values (Must be named)
+prm = c( I = .5, Ta = .8, N = .025 )
+nROUSE_demonstration(prm=prm)
+}
+
+}

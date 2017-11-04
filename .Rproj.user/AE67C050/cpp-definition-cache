@@ -5,7 +5,7 @@
                 "column" : 11,
                 "file" : "F:/Stuff/Kevin's Stuff/Postdoc/R packages/nROUSE/src/nROUSE_functions.cpp",
                 "kind" : 6,
-                "line" : 28,
+                "line" : 24,
                 "name" : "subplus(arma::mat, double)",
                 "parent_name" : "",
                 "usr" : "c:@F@subplus#$@N@arma@C@Mat>#d#d#"
@@ -14,7 +14,7 @@
                 "column" : 6,
                 "file" : "F:/Stuff/Kevin's Stuff/Postdoc/R packages/nROUSE/src/nROUSE_functions.cpp",
                 "kind" : 6,
-                "line" : 41,
+                "line" : 37,
                 "name" : "update_nROUSE(arma::mat &, arma::mat &, arma::mat &, arma::mat, arma::mat, arma::mat, double, double, double, double, double, Rcpp::NumericVector, int)",
                 "parent_name" : "",
                 "usr" : "c:@F@update_nROUSE#&$@N@arma@C@Mat>#d#S0_#S0_#S1_#S1_#S1_#d#d#d#d#d#$@N@Rcpp@C@Vector>#VI14#@N@Rcpp@CT>1#T@PreserveStorage#I#"
@@ -30,6 +30,6 @@
             }
         ],
         "file" : "F:/Stuff/Kevin's Stuff/Postdoc/R packages/nROUSE/src/nROUSE_functions.cpp",
-        "file_last_write" : 1480200062
+        "file_last_write" : 1509806694
     }
 ]
